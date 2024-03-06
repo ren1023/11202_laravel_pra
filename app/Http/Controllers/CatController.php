@@ -12,7 +12,13 @@ class CatController extends Controller
     public function index()
     {
         // dd('hello cat index');
+        // $data=view('cat.index');
+        // dd($data);
+        // $url=route('cats', ['cat' => 1]);
+        // $url = route('cats.edit', ['cat' => 1]);
+        // dd($url);
         return view('cat.index');
+
     }
 
     /**
@@ -20,6 +26,8 @@ class CatController extends Controller
      */
     public function create()
     {
+        // $url=
+        // route('cats.store');
         return view('cat.create');
     }
 
@@ -28,7 +36,11 @@ class CatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);//印出$request的參數
+        // $input=$request->except('_token');
+        // dd($input);//實際印出輸入的資料
+        // dd('hello cat store');//確認當form表單送出post時，是否有收到
+        return redirect()->route('cats.index');//回首頁
     }
 
     /**
@@ -44,7 +56,10 @@ class CatController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // dd("hello $id");//使用模擬的網址http://localhost/cats/556888/edit
+
+        dd("Hello $id");
+
     }
 
     /**
