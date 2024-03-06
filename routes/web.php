@@ -27,3 +27,8 @@ Route::resource('cats', CatController::class);
 // dogs 小狗
 Route::resource('dogs', DogController::class);
 
+//繼承app.blade.php的view
+Route::get('/child', function () {
+    // return view('welcome');
+    return view('/child');
+});

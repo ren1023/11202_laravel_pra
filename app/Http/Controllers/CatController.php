@@ -59,6 +59,8 @@ class CatController extends Controller
         // dd("hello $id");//使用模擬的網址http://localhost/cats/556888/edit
 
         dd("Hello $id");
+        return view('cat.edit');
+
 
     }
 
