@@ -3,9 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CatController;
 use App\Http\Controllers\DogController;
-use App\Http\Controllers\FishController;
-use App\Http\Controllers\PigController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -19,18 +16,14 @@ use App\Http\Controllers\PigController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return redirect('/cats');
 });
 
-Route::get('/hello', function () {
-    // return view('hello');
-});
+// cats 小貓
+Route::get('/cats_excel', [CatController::class, 'excel'])->name('cats.excel');
+Route::resource('cats', CatController::class);
 
+// dogs 小狗
+Route::resource('dogs', DogController::class);
 
-// Route::get('/user/{id}', [UserController::class, 'show']);
-Route::get('/test', [CatController::class, 'testAction']);
-Route::get('/dog', [DogController::class, 'run']); 
-
-Route::resource('pigs', PigController::class);
-
-Route::resource('fishs', FishController::class);
