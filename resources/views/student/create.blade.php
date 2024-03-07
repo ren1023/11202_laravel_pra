@@ -30,11 +30,11 @@
         </div>
     </nav>
 
-    <form action="{{ route('cats.store') }}" method="post">
+    <form action="{{ route('students.store') }}" method="post">
         @csrf
         {{-- <form action="http://localhost/cats" method="post"> --}}
         <div class="container mt-3">
-            <h2>Cat Create</h2>
+            <h2>Student Create</h2>
             <p>Lorem ipsum dolor sit amet.</p>
             <div class="row">
                 <div class="col ">name</div>
