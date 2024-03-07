@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\cat;
 
 class CatController extends Controller
 {
@@ -12,6 +13,11 @@ class CatController extends Controller
      */
     public function index()
     {
+        $data = Cat::where('id', '>', 5)->orderByDesc('id')->get();
+        return view('cat.index', ['data' => $data]);
+
+
+
         // dd('hello cat index');
         // $data=view('cat.index');
         // dd($data);
@@ -28,7 +34,7 @@ class CatController extends Controller
 
         /** 測試撈取資料 
          */
-        $data['cats'] = DB::select('SELECT * FROM cats');
+        // $data['cats'] = DB::select('SELECT * FROM cats');
         // $data['dogs'] = DB::select('SELECT * FROM dogs');
         // $data['test'] = '123';
         //dd會帶有中斷的指令
@@ -36,7 +42,7 @@ class CatController extends Controller
 
         /**連線至首頁 */
 
-        return view('cat.index',['data'=>$data]);
+        // return view('cat.index',['data'=>$data]);
         // return view('cat.index');
 
     }
@@ -61,12 +67,13 @@ class CatController extends Controller
         $now=now();
         // dd($input);//實際印出輸入的資料
         // dd('hello cat store');//確認當form表單送出post時，是否有收到
-        DB::table('cats')->insert([
-            'name' => $input['name'],
-            'mobile' => $input['mobile'],
-            'created_at' => $now,
-            'updated_at' => $now
-        ]);
+
+        // DB::table('cats')->insert([
+        //     'name' => $input['name'],
+        //     'mobile' => $input['mobile'],
+        //     'created_at' => $now,
+        //     'updated_at' => $now
+        // ]);
         return redirect()->route('cats.index');//回首頁
     }
 

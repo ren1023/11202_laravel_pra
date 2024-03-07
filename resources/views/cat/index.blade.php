@@ -50,7 +50,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($data['cats'] as $item)
+                @foreach($data as $item)
                 <tr>
                     <td>{{$item->id}}</td>
                     <td>{{$item->name}}</td>
