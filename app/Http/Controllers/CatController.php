@@ -28,13 +28,14 @@ class CatController extends Controller
 
         /** 測試撈取資料 
          */
-        // $cats = DB::table('cats')
-        //     ->select()
-        //     ->get();
+        $data['cats'] = DB::select('SELECT * FROM cats');
+        $data['dogs'] = DB::select('SELECT * FROM dogs');
+        $data['test'] = '123';
         // dd($cats);
 
         /**連線至首頁 */
-        return view('cat.index');
+
+        return view('cat.index',['data'=>$data]);
 
     }
 

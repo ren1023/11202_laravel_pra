@@ -28,7 +28,12 @@
             </ul>
         </div>
     </nav>
-
+    @php
+        dd($data);
+        $test=$data['test'];
+        dd($test);
+    @endphp
+    @endphp
     <div class="container mt-3">
         <h2>Cat List</h2>
         <p>Lorem ipsum dolor sit amet.</p>
