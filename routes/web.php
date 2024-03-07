@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CatController;
 use App\Http\Controllers\DogController;
+use App\Http\Controllers\MobileController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +34,9 @@ Route::get('/child', function () {
     // return view('welcome');
     return view('/child');
 });
+
+// students 學生
+Route::resource('students', StudentController::class);
+
+// mobiles 學生
+Route::resource('mobiles', MobileController::class);
