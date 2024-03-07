@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CatController extends Controller
 {
@@ -17,6 +18,22 @@ class CatController extends Controller
         // $url=route('cats', ['cat' => 1]);
         // $url = route('cats.edit', ['cat' => 1]);
         // dd($url);
+
+        /**測試新增資料*/
+        // $data=DB::table('cats')->insert([
+        //     'name'=>'gg',
+        //     'mobile' => '0999'
+        // ]);
+        // dd($data);
+
+        /** 測試撈取資料 
+         */
+        // $cats = DB::table('cats')
+        //     ->select()
+        //     ->get();
+        // dd($cats);
+
+        /**連線至首頁 */
         return view('cat.index');
 
     }
