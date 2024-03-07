@@ -10,36 +10,38 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    {{-- <link rel="stylesheet" href="{{asset('css/style.css')}}"> --}}
     {{-- <link rel="stylesheet" href="http://localhost/css/style.css"> --}}
-
+    {{-- <link rel="stylesheet" href="{{asset('css/style.css')}}"> --}}
 </head>
 
 <body>
-    {{-- <h1>Hello CSS_測試上方的css檔是否生效用的</h1> --}}
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('cats.index')}}">Cats</a>
+                    <a class="nav-link" href="{{route('cats.index') }}">Cats</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('dogs.index')}}">Dogs</a>
+                    <a class="nav-link" href="{{route('dogs.index') }}">Dogs</a>
                 </li>
             </ul>
         </div>
     </nav>
-     @php 
-        // dd($data); 
-        // $test=$data['test'];
+
+    @php
         // dd($test);
+        // dd($data);
+        // $test = $data['test'];
+
     @endphp
+
+
     <div class="container mt-3">
         <h2>Cat List</h2>
         <p>Lorem ipsum dolor sit amet.</p>
         <div class="text-end">
-            <a href="{{route('cats.create')}}">Add</a>
-            <a href="{{route('cats.excel')}}">Excel</a>
+            <a href="{{ route('cats.create') }}">Add</a>
+            <a href="{{ route('cats.excel') }}">Excel</a>
         </div>
         <table class="table table-striped">
             <thead>
@@ -50,16 +52,21 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($data['cats'] as $item)
-                <tr>
-                    <td>{{$item->id}}</td>
-                    <td>{{$item->name}}</td>
-                    <td>
-                        <a href="{{route('cats.edit', ['cat' => $item->id])}}">Edit</a> &nbsp;&nbsp;&nbsp;
-                        <a href="http://">Del</a>
-                    </td>
-                </tr>
+                @foreach ($data as $item)
+                    <tr>
+                        <td>
+                            {{ $item->id }}
+                        </td>
+                        <td>
+                            {{ $item->name }}
+                        </td>
+                        <td>
+                            <a href="{{ route('cats.edit', ['cat' => $item->id ]) }}">Edit</a> &nbsp;&nbsp;&nbsp;
+                            <a href="http://">Del</a>
+                        </td>
+                    </tr>
                 @endforeach
+
             </tbody>
         </table>
     </div>

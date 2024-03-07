@@ -11,7 +11,6 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     {{-- <link rel="stylesheet" href="{{asset('css/style.css')}}"> --}}
-    {{-- <link rel="stylesheet" href="http://localhost/css/style.css"> --}}
 
 </head>
 
@@ -29,19 +28,38 @@
             </ul>
         </div>
     </nav>
-     @php 
-        // dd($data); 
-        // $test=$data['test'];
-        // dd($test);
-    @endphp
+
+    <form action="{{route('cats.store')}}" method="post">
+        @csrf
     <div class="container mt-3">
-        <h2>Cat List</h2>
+        <h2>Cat Edit</h2>
         <p>Lorem ipsum dolor sit amet.</p>
-        <div class="text-end">
+        <div class="row">
+            <div class="col">name</div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <input type="text" name="name" id="" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">mobile</div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <input type="text" name="mobile" id="" class="form-control">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col d-grid gap-2">
+                <button type="submit" class="btn  btn-success">送出</button>
+            </div>
+        </div>
+        {{-- <div class="text-end">
             <a href="{{route('cats.create')}}">Add</a>
             <a href="{{route('cats.excel')}}">Excel</a>
-        </div>
-        <table class="table table-striped">
+        </div> --}}
+        {{-- <table class="table table-striped">
             <thead>
                 <tr>
                     <th>id</th>
@@ -50,19 +68,42 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($data['cats'] as $item)
                 <tr>
-                    <td>{{$item->id}}</td>
-                    <td>{{$item->name}}</td>
+                    <td>1</td>
+                    <td>Amy</td>
                     <td>
-                        <a href="{{route('cats.edit', ['cat' => $item->id])}}">Edit</a> &nbsp;&nbsp;&nbsp;
+                        <a href="http://">Edit</a> &nbsp;&nbsp;&nbsp;
                         <a href="http://">Del</a>
                     </td>
                 </tr>
-                @endforeach
+                <tr>
+                    <td>1</td>
+                    <td>Amy</td>
+                    <td>
+                        <a href="http://">Edit</a> &nbsp;&nbsp;&nbsp;
+                        <a href="http://">Del</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Amy</td>
+                    <td>
+                        <a href="http://">Edit</a> &nbsp;&nbsp;&nbsp;
+                        <a href="http://">Del</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Amy</td>
+                    <td>
+                        <a href="http://">Edit</a> &nbsp;&nbsp;&nbsp;
+                        <a href="http://">Del</a>
+                    </td>
+                </tr>
             </tbody>
-        </table>
+        </table> --}}
     </div>
+</form>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
