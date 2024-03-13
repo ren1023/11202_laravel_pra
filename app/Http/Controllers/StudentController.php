@@ -67,7 +67,7 @@ class StudentController extends Controller
         //
         $id=$student->id;
         $data=Student::where('id',$id)->with('mobileRelation')->first();
-        dd($data);
+        // dd($data); //可以確認關聯資料撈出時結果
         return view('student.edit', ['data' => $data]);
     }
 
@@ -77,6 +77,19 @@ class StudentController extends Controller
     public function update(Request $request, student $student)
     {
         //
+        $input=$request->except('_token','_method');
+        // dd($input);
+        //update students
+        $id=$student->id;//將學生的id存起來
+        $data=Student::where('id',$id)->first();//使用id撈一筆資料
+        $data->name=$input['name'];//將名字欄位的值取出來
+        $data->save();//將名字欄位的值
+
+        //update mobiles
+
+        return redirect()->route('students.index');
+
+        
     }
 
     /**

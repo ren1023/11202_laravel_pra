@@ -33,7 +33,8 @@
         </div>
     </nav>
 
-    <form action="{{ route('students.') }}" method="post">
+    <form action="{{ route('students.update',['student'=>$data->id]) }}" method="post">
+        @method('PUT')
         @csrf
         {{-- <form action="http://localhost/cats" method="post"> --}}
         <div class="container mt-3">
