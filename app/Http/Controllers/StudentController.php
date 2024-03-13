@@ -86,22 +86,22 @@ class StudentController extends Controller
         $data->save();//將名字欄位的值
 
         //方法二：update mobiles
-        Mobile::where('student_id',$id)->delete();
-        //儲存
-        $id = $data->id;
-        $item = new Mobile;
-        $item->student_id = $id;
-        $item->mobile = $input['mobile'];
-        $item->save();
+        // Mobile::where('student_id',$id)->delete();
+        // //儲存
+        // $id = $data->id;
+        // $item = new Mobile;
+        // $item->student_id = $id;
+        // $item->mobile = $input['mobile'];
+        // $item->save();
 
 
 
 
 
         //方法一：update mobiles
-        // $data=Mobile::where('student_id',$id)->first();//使用id撈一筆資料
-        // $data->name=$input['mobile'];//將電話欄位的值取出來
-        // $data->save();//將電話欄位的值
+        $data=Mobile::where('student_id',$id)->first();//使用id撈一筆資料
+        $data->name=$input['mobile'];//將電話欄位的值取出來
+        $data->save();//將電話欄位的值
 
         return redirect()->route('students.index');
 
@@ -113,6 +113,12 @@ class StudentController extends Controller
      */
     public function destroy(student $student)
     {
-        //
+        // delete students
+        Student::where('id', $student->id)->delete();
+        
+        // delete mobiles
+        Mobile::where('student_id', $student->id)->delete();
+
+        return redirect()->route('students.index');
     }
 }
