@@ -85,7 +85,23 @@ class StudentController extends Controller
         $data->name=$input['name'];//將名字欄位的值取出來
         $data->save();//將名字欄位的值
 
-        //update mobiles
+        //方法二：update mobiles
+        Mobile::where('student_id',$id)->delete();
+        //儲存
+        $id = $data->id;
+        $item = new Mobile;
+        $item->student_id = $id;
+        $item->mobile = $input['mobile'];
+        $item->save();
+
+
+
+
+
+        //方法一：update mobiles
+        // $data=Mobile::where('student_id',$id)->first();//使用id撈一筆資料
+        // $data->name=$input['mobile'];//將電話欄位的值取出來
+        // $data->save();//將電話欄位的值
 
         return redirect()->route('students.index');
 
