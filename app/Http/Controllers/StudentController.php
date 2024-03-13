@@ -15,7 +15,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $data = Student::get();
+        // $data = Student::get();
+        $data = Student::with('mobileRelation')->get();//學生資料表關聯mobile資料表
         return view('student.index', ['data' => $data]);
     }
 
@@ -64,6 +65,10 @@ class StudentController extends Controller
     public function edit(student $student)
     {
         //
+        $id=$student->id;
+        $data=Student::where('id',$id)->with('mobileRelation')->first();
+        dd($data);
+        return view('student.edit', ['data' => $data]);
     }
 
     /**

@@ -15,6 +15,8 @@
 </head>
 
 <body>
+    {{-- <h1>Hello CSS</h1> --}}
+
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
             <ul class="navbar-nav">
@@ -31,55 +33,38 @@
         </div>
     </nav>
 
-    @php
-        // dd($test);
-        // dd($data);
-        // $test = $data['test'];
-
-    @endphp
-
-
-    <div class="container mt-3">
-        <h2>Student List</h2>
-        <p>Lorem ipsum dolor sit amet.</p>
-        <div class="text-end">
-            <a href="{{ route('students.create') }}">Add</a>
+    <form action="{{ route('students.') }}" method="post">
+        @csrf
+        {{-- <form action="http://localhost/cats" method="post"> --}}
+        <div class="container mt-3">
+            <h2>Student Edit</h2>
+            <p>Lorem ipsum dolor sit amet.</p>
+            <div class="row">
+                <div class="col ">name</div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="name" id="" class="form-control" value="{{$data->name}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col ">mobile</div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="mobile" id="" class="form-control" value="{{$data->mobileRelation->mobile}}">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" type="submit">Button</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>id</th>
-                    <th>name</th>
-                    <th>mobile_student_id</th>
-                    <th>mobile_mobile</th>
-                    <th>operate</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($data as $item)
-                    <tr>
-                        <td>
-                            {{ $item->id }}
-                        </td>
-                        <td>
-                            {{ $item->name }}
-                        </td>
-                        <td>
-                            {{ $item->mobileRelation->student_id }}
-                        </td>
-                        <td>
-                            {{ $item->mobileRelation->mobile }}
-                        </td>
-                        <td>
-                            <a href="{{ route('students.edit', ['student' => $item->id ]) }}">Edit</a> &nbsp;&nbsp;&nbsp;
-                            <a href="http://">Del</a>
-                        </td>
-                    </tr>
-                @endforeach
+    </form>
 
-            </tbody>
-        </table>
-    </div>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"

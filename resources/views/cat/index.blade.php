@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Bootstrap Example</title>
+    <title>Cat List</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -21,6 +21,9 @@
         <div class="container-fluid">
             <ul class="navbar-nav">
                 <li class="nav-item">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('students.index') }}">students</a>
+                    </li>
                     <a class="nav-link" href="{{route('cats.index')}}">Cats</a>
                 </li>
                 <li class="nav-item">

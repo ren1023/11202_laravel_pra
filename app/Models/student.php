@@ -15,7 +15,7 @@ class student extends Model
     protected $table = 'students';
 
     /**Student 這個class關聯至Mobile這個class */
-    public function mobile(): HasOne
+    public function mobileRelation(): HasOne
     {
         return $this->hasOne(Mobile::class);
     }
