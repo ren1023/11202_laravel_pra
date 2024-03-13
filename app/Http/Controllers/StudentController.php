@@ -16,7 +16,15 @@ class StudentController extends Controller
     public function index()
     {
         // $data = Student::get();
-        $data = Student::with('mobileRelation')->get();//學生資料表關聯mobile資料表
+        // $data = Student::with('mobileRelation')->get();//學生資料表關聯mobile資料表
+        $data = Student::with('mobileRelation')->with('loveRelations')->get();//學生資料表關聯mobile和loves資料表
+        // dd($data);
+        foreach($data as $key=>$value){
+            echo "$value->name <br>";
+            foreach($value->loveRelations as $key2=>$value2){
+                echo "&nbsp;&nbsp;&nbsp;&nbsp; $value2->love";
+            }
+        }
         return view('student.index', ['data' => $data]);
     }
 

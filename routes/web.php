@@ -40,3 +40,6 @@ Route::resource('students', StudentController::class);
 
 // mobiles 學生
 Route::resource('mobiles', MobileController::class);
+
+// 愛好 學生
+Route::resource('loves', MobileController::class);

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
 
 
 class student extends Model
@@ -18,5 +20,10 @@ class student extends Model
     public function mobileRelation(): HasOne
     {
         return $this->hasOne(Mobile::class);
+    }
+
+    public function loveRelations(): HasMany
+    {
+        return $this->hasMany(Love::class);
     }
 }
